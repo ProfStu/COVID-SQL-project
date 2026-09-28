@@ -8,6 +8,8 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 - **Coverage:** 1 January 2020 to 30 April 2021, across 219 locations (countries, territories and regional aggregates)
 - **Tools:** PostgreSQL, pgAdmin 4, Python
 
+![Ten countries with the most COVID-19 deaths](Charts/02_top10_total_deaths.png)
+
 ## Repository structure
 ```
 ├── README.md
@@ -21,11 +23,11 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 ├── outputs/
 │   └── COVID_SQL_outputs.xlsx
 └── charts/
-│   ├── Python Charts script: covid_charts.ipynb
-│   ├── 01: South Africa's 7-day Average Cases
-│   ├── 02: Ten Countries with Most Deaths
-│   ├── 03: Ten Countries with the Highest Percentage of Fully Vaccinated People
-│   └── 04: Before/after deaths per million for African countries
+│   ├── covid_charts.ipynb
+│   ├── 01_south_africa_new_cases.png
+│   ├── 02_top10_total_deaths.png
+│   ├── 03_pct_fully_vaccinated.png
+│   └── 04_africa_before_after_vaccination.png
 ```
 
 ## Data preparation
@@ -42,7 +44,7 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 | Negative `new_deaths` | 83 rows across 44 locations, consistent with source data corrections. These were excluded from the before/after analysis (Q12) |
 | Cases greater than population | None |
 | Fully vaccinated greater than people vaccinated | None |
-| Duplicate location/date rows | None in the vaccinations table [add result for deaths table] |
+| Duplicate location/date rows | None in the vaccinations table |
 | Location consistency | Both tables contain the same set of locations |
 | First vaccination recorded | 14 Dec 2020 |
 
@@ -68,6 +70,14 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 - **Vaccination was highly unequal by April 2021.** The median country had 6.6% of its population fully vaccinated, while wealthier countries and small territories were far ahead. South Africa was at 0.54%.
 - **A before/after comparison is not evidence of vaccine impact.** South Africa's death rate fell 68.5% in the 30 days after its first vaccination (6.32 to 1.99 deaths per million per day), yet under 1% of its population was fully vaccinated. The fall reflects the end of the January wave. Some countries, such as Botswana, Namibia and Cape Verde, saw deaths rise because their own waves were building.
 
+## Charts
+### South Africa's epidemic curve (Q5)
+![South Africa daily new COVID-19 cases](Charts/01_south_africa_new_cases.png)
+
+### Vaccination coverage (Q11)
+![Share of population fully vaccinated](Charts/03_pct_fully_vaccinated.png)
+
+
 ## Limitations
 - **Cut-off date:** The data ends on 30 April 2021, so all "latest" figures are as of that date.
 - **Confirmed figures only:** Cases and deaths depend on each country's testing capacity and reporting practices. Cross-country comparisons should be read with this in mind.
@@ -83,4 +93,4 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 3. Run `sql/01_setup_and_cleaning.sql`, then `sql/02_data_quality_checks.sql`, then `sql/03_analysis_queries.sql`. Run the analysis queries one at a time to inspect each result.
 
 ## Author
-Stuart Morrison | [LinkedIn](www.linkedin.com/in/stuart-morrison-184988190)
+Stuart Morrison | [LinkedIn](https://www.linkedin.com/in/stuart-morrison-184988190)
