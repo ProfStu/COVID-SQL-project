@@ -11,6 +11,9 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 ## Repository structure
 ```
 ├── README.md
+├── data/
+│   ├── CovidDeaths.csv
+│   └── CovidVaccinations.csv
 ├── sql/
 │   ├── 01_setup_and_cleaning.sql
 │   ├── 02_data_quality_checks.sql
@@ -18,7 +21,10 @@ This project takes the raw OWID COVID-19 dataset, cleans and validates it in Pos
 ├── outputs/
 │   └── COVID_SQL_outputs.xlsx
 └── charts/
-    └── [chart images]
+│   ├── 01: South Africa's 7-day Average Cases
+│   ├── 02: Ten Countries with Most Deaths
+│   ├── 03: Ten Countries with the Highest Percentage of Fully Vaccinated People
+│   └── 04: Before/after deaths per million for African countries
 ```
 
 ## Data preparation
